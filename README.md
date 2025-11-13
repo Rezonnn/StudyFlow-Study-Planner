@@ -2,7 +2,7 @@
 
 A front-end **HTML / CSS / JavaScript** project that acts as a lightweight study planner for students.
 
-This is a great GitHub portfolio project to show:
+My project showcases:
 
 - Clean, responsive UI
 - Vanilla JavaScript state management
