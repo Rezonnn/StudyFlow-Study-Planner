@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>StudyFlow – Student Planner Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Study<span>Flow</span></div>
+    <nav class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#tasks">Tasks</a>
+      <a href="#stats">Stats</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="overview" class="hero">
+      <div class="hero-text">
+        <h1>Stay on top of your classes.</h1>
+        <p>
+          StudyFlow is a simple study planner dashboard to keep your
+          coursework, exams, and personal goals in one place.
+        </p>
+        <div class="hero-highlights">
+          <div class="pill">Today focus: <span id="todayCourse">—</span></div>
+          <div class="pill">Pending tasks: <span id="pendingCount">0</span></div>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <h2>Today at a glance</h2>
+        <ul id="todayList" class="mini-list">
+          <!-- Filled by JS -->
+        </ul>
+        <p class="mini-list-empty" id="todayEmpty">No tasks due today 🎉</p>
+      </div>
+    </section>
+
+    <section id="tasks" class="tasks-section">
+      <div class="section-header">
+        <h2>Tasks</h2>
+        <div class="filters">
+          <select id="filterCourse">
+            <option value="all">All courses</option>
+          </select>
+          <select id="filterStatus">
+            <option value="all">All statuses</option>
+            <option value="pending">Pending</option>
+            <option value="done">Done</option>
+          </select>
+          <select id="filterPriority">
+            <option value="all">All priorities</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="layout">
+        <div class="tasks-list-wrapper">
+          <div id="taskList" class="task-list">
+            <!-- Tasks rendered here -->
+          </div>
+          <p class="empty-state" id="emptyState">No tasks match the current filters.</p>
+        </div>
+
+        <aside class="task-form-wrapper">
+          <h3>Add a new task</h3>
+          <form id="taskForm">
+            <label>
+              Title
+              <input type="text" id="titleInput" placeholder="Finish problem set 3" required />
+            </label>
+
+            <label>
+              Course
+              <input type="text" id="courseInput" placeholder="DSC 40A" required />
+            </label>
+
+            <label>
+              Due date
+              <input type="date" id="dueInput" required />
+            </label>
+
+            <label>
+              Priority
+              <select id="priorityInput">
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+                <option value="high">High</option>
+              </select>
+            </label>
+
+            <label>
+              Notes
+              <textarea id="notesInput" rows="3" placeholder="Any extra details..."></textarea>
+            </label>
+
+            <button type="submit" class="btn primary">Add task</button>
+            <button type="button" id="clearAllBtn" class="btn ghost small">Clear all tasks</button>
+          </form>
+          <p class="hint">Tasks are saved in your browser (localStorage).</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="stats" class="stats-section">
+      <h2>Study stats</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>Total tasks</h3>
+          <p id="statTotal">0</p>
+        </div>
+        <div class="stat-card">
+          <h3>Completed</h3>
+          <p id="statDone">0</p>
+        </div>
+        <div class="stat-card">
+          <h3>High priority</h3>
+          <p id="statHigh">0</p>
+        </div>
+        <div class="stat-card">
+          <h3>Due this week</h3>
+          <p id="statWeek">0</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>&copy; <span id="year"></span> StudyFlow – demo study planner dashboard.</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
